@@ -42,7 +42,7 @@ namespace SosDentes.Telas
                 DateTime dataInicio = DateTime.ParseExact(dateTimePicker1.Text + " " + comboBox4.Text, formato, System.Globalization.CultureInfo.CurrentCulture);
                 DateTime dataFim = dataInicio.Add(TimeSpan.Parse(servicoSelecionado["Tempo_Atendimento"].ToString()));
 
-                if (ObjAgenda.ValidarDataAgendamento(dataInicio.ToString(formato), dataFim.ToString(formato), id_especialista))
+                if (DateTime.Now < dataInicio && ObjAgenda.ValidarDataAgendamento(dataInicio.ToString(formato), dataFim.ToString(formato), id_especialista))
                 {
                     ObjAgenda.Procedimento = servicoSelecionado["id_servico"].ToString();
                     ObjAgenda.Nome = Temp2;
