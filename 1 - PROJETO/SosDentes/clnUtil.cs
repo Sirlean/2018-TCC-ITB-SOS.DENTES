@@ -97,6 +97,11 @@ namespace SosDentes
             {
                 return false;
             }
+            if (Cpf.Distinct().Count() == 1)
+            {
+                return false;
+            }
+
             tempCpf = Cpf.Substring(0, 9);
 
             soma = 0;
