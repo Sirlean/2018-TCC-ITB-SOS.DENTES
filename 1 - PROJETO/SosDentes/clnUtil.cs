@@ -33,13 +33,13 @@ namespace SosDentes
 
         public DataTable PreencherTipoServico()
         {
-            comando = "Select id_servico, Des_servico from Tipo_Servico";
+            comando = "Select * from Tipo_Servico";
             return ObjbancoDados.RetornaTabela(comando);
         }
 
         public DataTable PreencherDentista(string id_servico)
         {
-            comando = "select f.nome 'DENTISTA', ts.Des_servico 'SERVICO' from dentista_servico ds " +
+            comando = "select f.nome 'DENTISTA', ts.Des_servico 'SERVICO', ds.id_servico, f.id_funcionario  from dentista_servico ds " +
                       "inner join Tipo_Servico ts  on ts.id_servico =  ds.id_servico " + 
                       "inner join Funcionario f  on f.id_funcionario = ds.id_dentista " + 
                        " where f.CARGO = 'DENTISTA' and ts.des_servico = '" + id_servico +"'";   

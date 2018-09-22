@@ -14,10 +14,10 @@ using System.Windows.Forms;
 
 namespace SosDentes.Telas
 {
-    
+
     public partial class frmPesquisarPacientes : Form
     {
-        
+
         public frmPesquisarPacientes()
         {
             InitializeComponent();
@@ -46,5 +46,14 @@ namespace SosDentes.Telas
             frmAgenda.Temp2 = dgv.CurrentRow.Cells[0].Value.ToString();
             Close();
         }
+
+        private void dgv_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                dgv_DoubleClick(sender, e);
+            }
+        }
     }
 }
+

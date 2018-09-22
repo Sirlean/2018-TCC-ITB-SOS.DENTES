@@ -31,7 +31,7 @@
             this.dgv = new System.Windows.Forms.DataGridView();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnAlterar = new System.Windows.Forms.Button();
+            this.btnFinalizar = new System.Windows.Forms.Button();
             this.lblPesquisar = new System.Windows.Forms.Label();
             this.txtPesquisar = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
@@ -67,7 +67,7 @@
             this.btnCancelar.BackColor = System.Drawing.Color.MediumPurple;
             this.btnCancelar.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnCancelar.Location = new System.Drawing.Point(284, 439);
+            this.btnCancelar.Location = new System.Drawing.Point(426, 439);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(150, 50);
             this.btnCancelar.TabIndex = 2;
@@ -75,18 +75,18 @@
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // btnAlterar
+            // btnFinalizar
             // 
-            this.btnAlterar.BackColor = System.Drawing.Color.MediumPurple;
-            this.btnAlterar.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAlterar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAlterar.Location = new System.Drawing.Point(440, 439);
-            this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(150, 50);
-            this.btnAlterar.TabIndex = 3;
-            this.btnAlterar.Text = "ALTERAR";
-            this.btnAlterar.UseVisualStyleBackColor = false;
-            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
+            this.btnFinalizar.BackColor = System.Drawing.Color.MediumPurple;
+            this.btnFinalizar.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFinalizar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnFinalizar.Location = new System.Drawing.Point(597, 439);
+            this.btnFinalizar.Name = "btnFinalizar";
+            this.btnFinalizar.Size = new System.Drawing.Size(150, 50);
+            this.btnFinalizar.TabIndex = 3;
+            this.btnFinalizar.Text = "CONCLUIR";
+            this.btnFinalizar.UseVisualStyleBackColor = false;
+            this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
             // 
             // lblPesquisar
             // 
@@ -112,7 +112,7 @@
             this.ClientSize = new System.Drawing.Size(798, 501);
             this.Controls.Add(this.txtPesquisar);
             this.Controls.Add(this.lblPesquisar);
-            this.Controls.Add(this.btnAlterar);
+            this.Controls.Add(this.btnFinalizar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnPesquisar);
             this.Controls.Add(this.dgv);
@@ -130,7 +130,7 @@
         private System.Windows.Forms.DataGridView dgv;
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnAlterar;
+        private System.Windows.Forms.Button btnFinalizar;
         private System.Windows.Forms.Label lblPesquisar;
         private System.Windows.Forms.TextBox txtPesquisar;
     }

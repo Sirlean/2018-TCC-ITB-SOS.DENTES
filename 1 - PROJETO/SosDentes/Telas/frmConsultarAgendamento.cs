@@ -15,7 +15,7 @@ namespace SosDentes.Telas
     public partial class frmConsultarAgendamento : Form
     {
         clnAgenda ObjAgenda = new clnAgenda();
-     
+
 
         public frmConsultarAgendamento()
         {
@@ -28,18 +28,22 @@ namespace SosDentes.Telas
             dgv.DataSource = ObjAgenda.RetornaAgendamento(txtPesquisar.Text);
 
             dgv.AutoResizeColumns();
-            dgv.Columns[0].HeaderText = ("CÓDIGO");
-            dgv.Columns[1].HeaderText = ("PACIENTE");
-            dgv.Columns[2].HeaderText = ("FUNCIONÁRIO");
-            dgv.Columns[3].HeaderText = ("SERVIÇO");
-            dgv.Columns[4].HeaderText = ("DATA");
-            dgv.Columns[5].HeaderText = ("HORA");
-            dgv.Columns[6].HeaderText = ("STATUS");
+            dgv.Columns[0].HeaderText = "CÓDIGO";
+            dgv.Columns[1].Visible = false; // codigo paciente
+            dgv.Columns[2].HeaderText = "PACIENTE";
+            dgv.Columns[3].HeaderText = "CELULAR";
+            dgv.Columns[4].Visible = false; // codigo SERVICO
+            dgv.Columns[5].HeaderText = "SERVIÇO";
+            dgv.Columns[6].HeaderText = "TEMPO ATENDIMENTO";
+            dgv.Columns[7].Visible = false; // CODIGO DENTISTA
+            dgv.Columns[8].HeaderText = "DENTISTA";
+            dgv.Columns[9].HeaderText = "DATA";
+            dgv.Columns[10].Visible = false; // DATA FIM
+            dgv.Columns[11].HeaderText = "STATUS";
 
             if (dgv.RowCount == 0)
             {
-             
-                btnAlterar.Enabled = false;
+                btnFinalizar.Enabled = false;
                 btnCancelar.Enabled = false;
                 MessageBox.Show("NÃO FORAM ENCONTRADOS DADOS COM A INFORMAÇÃO " + txtPesquisar.Text, "Verificar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 dgv.DataSource = null;
@@ -48,8 +52,9 @@ namespace SosDentes.Telas
             }
             else
             {
-                btnAlterar.Enabled = true;
+                btnFinalizar.Enabled = true;
                 btnCancelar.Enabled = true;
+
             }
         }
 
@@ -59,9 +64,10 @@ namespace SosDentes.Telas
                         "E X C L U S Ã O", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (DialogResult.Yes == resultado)
             {
-                ObjAgenda.Registro = dgv.CurrentRow.Cells[0].Value.ToString();
-                ObjAgenda.ExcluirLogicamente();
-                MessageBox.Show("Paciente Excluido com Sucesso", "E X C L U S Ã O", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (dgv.SelectedCells.Count == 1)
+                {
+                    MudarStatusItem("CANCELADO");
+                }
             }
             else
             {
@@ -70,16 +76,42 @@ namespace SosDentes.Telas
             CarregaDataGrid();
         }
 
-        private void btnAlterar_Click(object sender, EventArgs e)
+        private void MudarStatusItem(string status)
         {
-            frmAgenda alt = new frmAgenda();
-            alt.Text = ">>> ALTERAR <<<";
-            alt.txtPesClien.Enabled = false;
-            alt.comboBox2.Enabled = false;
-            alt.comboBox1.Enabled = false;
-            alt.cboStatus.Enabled = false;
-            alt.txtPesClien.Focus();
-            alt.ShowDialog();
+            int[] indexSelecionados = dgv.SelectedCells.Cast<DataGridViewCell>().Select(p => p.RowIndex).Distinct().ToArray();
+            if (indexSelecionados.Count() == 1)
+            {
+                int index = dgv.SelectedCells[0].RowIndex;
+                DataTable dataTable = (DataTable)dgv.DataSource;
+                string id_tratamento = dataTable.Rows[index]["id_tratamento"].ToString();
+
+                ObjAgenda.AtualizarStatus(id_tratamento, status);
+                CarregaDataGrid();
+
+                MessageBox.Show(status + " COM SUCESSO", "AGENDAMENTO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("SELECIONE UM AGENDAMENTO POR VEZ ", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+
+        private void btnFinalizar_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show("DESEJA CONCLUIR O AGENDAMENTO: " + Convert.ToString(dgv.CurrentRow.Cells[0].Value + "?"),
+                  "CONCLUSÃO", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (DialogResult.Yes == resultado)
+            {
+                if (dgv.SelectedCells.Count == 1)
+                {
+                    MudarStatusItem("CONCLUÍDO");
+                }
+            }
+            else
+            {
+                MessageBox.Show("OPERAÇÃO CANCELADA ", "CONCLUÍDO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
             CarregaDataGrid();
         }
 
@@ -90,11 +122,12 @@ namespace SosDentes.Telas
 
         private void frmConsultarAgendamento_Load(object sender, EventArgs e)
         {
-           
+
             btnCancelar.Enabled = false;
-            btnAlterar.Enabled = false;
+            btnFinalizar.Enabled = false;
             dgv.RowHeadersVisible = false;
         }
+
     }
 }
 

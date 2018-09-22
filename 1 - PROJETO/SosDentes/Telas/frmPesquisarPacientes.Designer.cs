@@ -75,6 +75,7 @@
             this.dgv.Size = new System.Drawing.Size(666, 256);
             this.dgv.TabIndex = 2;
             this.dgv.DoubleClick += new System.EventHandler(this.dgv_DoubleClick);
+            this.dgv.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgv_KeyDown);
             // 
             // frmPesquisarPacientes
             // 

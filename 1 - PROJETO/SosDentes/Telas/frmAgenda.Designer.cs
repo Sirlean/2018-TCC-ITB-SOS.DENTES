@@ -47,8 +47,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnAgendar = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cboStatus = new System.Windows.Forms.ComboBox();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnFinalizar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,7 +85,7 @@
             "CLÍNICO GERAL"});
             this.comboBox1.Location = new System.Drawing.Point(14, 79);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(266, 21);
+            this.comboBox1.Size = new System.Drawing.Size(451, 21);
             this.comboBox1.TabIndex = 72;
             this.comboBox1.Click += new System.EventHandler(this.comboBox1_Click);
             // 
@@ -215,15 +215,15 @@
             "18:00",
             "18:30",
             "19:00"});
-            this.comboBox4.Location = new System.Drawing.Point(451, 79);
+            this.comboBox4.Location = new System.Drawing.Point(615, 79);
             this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(121, 21);
+            this.comboBox4.Size = new System.Drawing.Size(90, 21);
             this.comboBox4.TabIndex = 81;
             // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(331, 77);
+            this.dateTimePicker1.Location = new System.Drawing.Point(495, 77);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(105, 20);
             this.dateTimePicker1.TabIndex = 80;
@@ -232,7 +232,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(455, 58);
+            this.label1.Location = new System.Drawing.Point(619, 58);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 16);
             this.label1.TabIndex = 79;
@@ -242,7 +242,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(328, 58);
+            this.label2.Location = new System.Drawing.Point(492, 58);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 16);
             this.label2.TabIndex = 78;
@@ -258,36 +258,37 @@
             this.btnAgendar.UseVisualStyleBackColor = true;
             this.btnAgendar.Click += new System.EventHandler(this.btnAgendar_Click);
             // 
-            // label3
+            // btnCancelar
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(598, 60);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 16);
-            this.label3.TabIndex = 83;
-            this.label3.Text = "STATUS";
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.Color.Black;
+            this.btnCancelar.Location = new System.Drawing.Point(538, 424);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(114, 23);
+            this.btnCancelar.TabIndex = 83;
+            this.btnCancelar.Text = "CANCELAR";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // cboStatus
+            // btnFinalizar
             // 
-            this.cboStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboStatus.FormattingEnabled = true;
-            this.cboStatus.Items.AddRange(new object[] {
-            "AGENDADO",
-            "CANCELADO",
-            "FINALIZADO"});
-            this.cboStatus.Location = new System.Drawing.Point(601, 79);
-            this.cboStatus.Name = "cboStatus";
-            this.cboStatus.Size = new System.Drawing.Size(121, 21);
-            this.cboStatus.TabIndex = 84;
+            this.btnFinalizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFinalizar.ForeColor = System.Drawing.Color.Black;
+            this.btnFinalizar.Location = new System.Drawing.Point(664, 424);
+            this.btnFinalizar.Name = "btnFinalizar";
+            this.btnFinalizar.Size = new System.Drawing.Size(114, 23);
+            this.btnFinalizar.TabIndex = 84;
+            this.btnFinalizar.Text = "FINALIZAR";
+            this.btnFinalizar.UseVisualStyleBackColor = false;
+            this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
             // 
             // frmAgenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(881, 459);
-            this.Controls.Add(this.cboStatus);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.btnFinalizar);
+            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAgendar);
             this.Controls.Add(this.comboBox4);
             this.Controls.Add(this.dateTimePicker1);
@@ -332,7 +333,7 @@
         public System.Windows.Forms.DataGridViewTextBoxColumn Column1Pro;
         public System.Windows.Forms.DataGridViewTextBoxColumn Comumn1Esp;
         public System.Windows.Forms.DataGridViewTextBoxColumn Status;
-        public System.Windows.Forms.Label label3;
-        public System.Windows.Forms.ComboBox cboStatus;
+        public System.Windows.Forms.Button btnCancelar;
+        public System.Windows.Forms.Button btnFinalizar;
     }
 }
