@@ -53,28 +53,7 @@ namespace SosDentes.Telas
                     MessageBox.Show("PERIODO INDISPONÍVEL PARA AGENDAMENTO ", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            //CarregaDataGrid();
         }
-
-
-        //public void InsereAgendaGrid()
-        //{
-
-        //    dgv.Columns[0].HeaderText = ("Data");
-        //    dgv.Columns[1].HeaderText = ("Hora");
-        //    dgv.Columns[2].HeaderText = ("Procedimento");
-        //    dgv.Columns[3].HeaderText = ("Especialista");
-        //    dgv.Columns[4].HeaderText = ("Status");
-
-        //    dgv.AutoResizeColumns();
-
-        //    dgv.Rows.Add();
-        //    dgv.CurrentRow.Cells[0].Value = dateTimePicker1.Text;
-        //    dgv.CurrentRow.Cells[1].Value = comboBox4.Text;
-        //    dgv.CurrentRow.Cells[2].Value = comboBox2.Text;
-        //    dgv.CurrentRow.Cells[3].Value = comboBox1.Text;
-        //    dgv.CurrentRow.Cells[4].Value = cboStatus.Text;
-        //}
         private void btnPesquisa_Click(object sender, EventArgs e)
         {
             frmPesquisarPacientes abrir = new frmPesquisarPacientes();

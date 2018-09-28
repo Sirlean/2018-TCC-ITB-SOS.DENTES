@@ -56,7 +56,7 @@
             // 
             this.btnSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSair.ForeColor = System.Drawing.Color.Red;
-            this.btnSair.Location = new System.Drawing.Point(794, 424);
+            this.btnSair.Location = new System.Drawing.Point(794, 430);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(75, 23);
             this.btnSair.TabIndex = 75;
@@ -182,12 +182,15 @@
             // 
             // btnPesquisa
             // 
-            this.btnPesquisa.Location = new System.Drawing.Point(505, 21);
+            this.btnPesquisa.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnPesquisa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPesquisa.ForeColor = System.Drawing.Color.White;
+            this.btnPesquisa.Location = new System.Drawing.Point(495, 12);
             this.btnPesquisa.Name = "btnPesquisa";
-            this.btnPesquisa.Size = new System.Drawing.Size(90, 23);
+            this.btnPesquisa.Size = new System.Drawing.Size(100, 32);
             this.btnPesquisa.TabIndex = 77;
             this.btnPesquisa.Text = "Pesquisar";
-            this.btnPesquisa.UseVisualStyleBackColor = true;
+            this.btnPesquisa.UseVisualStyleBackColor = false;
             this.btnPesquisa.Click += new System.EventHandler(this.btnPesquisa_Click);
             // 
             // comboBox4
@@ -195,8 +198,8 @@
             this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox4.FormattingEnabled = true;
             this.comboBox4.Items.AddRange(new object[] {
-            "9:00",
-            "9:30",
+            "09:00",
+            "09:30",
             "10:00",
             "10:30",
             "11:00",
@@ -250,21 +253,25 @@
             // 
             // btnAgendar
             // 
-            this.btnAgendar.Location = new System.Drawing.Point(738, 77);
+            this.btnAgendar.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnAgendar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgendar.ForeColor = System.Drawing.Color.White;
+            this.btnAgendar.Location = new System.Drawing.Point(738, 69);
             this.btnAgendar.Name = "btnAgendar";
-            this.btnAgendar.Size = new System.Drawing.Size(104, 25);
+            this.btnAgendar.Size = new System.Drawing.Size(131, 40);
             this.btnAgendar.TabIndex = 82;
-            this.btnAgendar.Text = "Agendar";
-            this.btnAgendar.UseVisualStyleBackColor = true;
+            this.btnAgendar.Text = ">>> Agendamento <<<";
+            this.btnAgendar.UseVisualStyleBackColor = false;
             this.btnAgendar.Click += new System.EventHandler(this.btnAgendar_Click);
             // 
             // btnCancelar
             // 
+            this.btnCancelar.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.ForeColor = System.Drawing.Color.Black;
+            this.btnCancelar.ForeColor = System.Drawing.Color.White;
             this.btnCancelar.Location = new System.Drawing.Point(538, 424);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(114, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(114, 34);
             this.btnCancelar.TabIndex = 83;
             this.btnCancelar.Text = "CANCELAR";
             this.btnCancelar.UseVisualStyleBackColor = false;
@@ -272,11 +279,12 @@
             // 
             // btnFinalizar
             // 
+            this.btnFinalizar.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.btnFinalizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFinalizar.ForeColor = System.Drawing.Color.Black;
+            this.btnFinalizar.ForeColor = System.Drawing.Color.White;
             this.btnFinalizar.Location = new System.Drawing.Point(664, 424);
             this.btnFinalizar.Name = "btnFinalizar";
-            this.btnFinalizar.Size = new System.Drawing.Size(114, 23);
+            this.btnFinalizar.Size = new System.Drawing.Size(114, 33);
             this.btnFinalizar.TabIndex = 84;
             this.btnFinalizar.Text = "FINALIZAR";
             this.btnFinalizar.UseVisualStyleBackColor = false;
@@ -286,7 +294,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(881, 459);
+            this.ClientSize = new System.Drawing.Size(881, 469);
             this.Controls.Add(this.btnFinalizar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAgendar);
@@ -304,7 +312,7 @@
             this.Controls.Add(this.txtPesClien);
             this.Controls.Add(this.lblCliente);
             this.Name = "frmAgenda";
-            this.Text = "Agenda";
+            this.Text = ">>> NOVO AGENDAMENTO <<<";
             this.Load += new System.EventHandler(this.frmAgenda_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.ResumeLayout(false);
