@@ -260,7 +260,7 @@
             this.btnAgendar.Name = "btnAgendar";
             this.btnAgendar.Size = new System.Drawing.Size(131, 40);
             this.btnAgendar.TabIndex = 82;
-            this.btnAgendar.Text = ">>> Agendamento <<<";
+            this.btnAgendar.Text = "Agendar";
             this.btnAgendar.UseVisualStyleBackColor = false;
             this.btnAgendar.Click += new System.EventHandler(this.btnAgendar_Click);
             // 
@@ -269,7 +269,7 @@
             this.btnCancelar.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(538, 424);
+            this.btnCancelar.Location = new System.Drawing.Point(544, 424);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(114, 34);
             this.btnCancelar.TabIndex = 83;

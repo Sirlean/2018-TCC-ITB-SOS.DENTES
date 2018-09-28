@@ -150,6 +150,7 @@ namespace SosDentes.Telas
             {
                 MudarStatusItem("CANCELADO");
             }
+            btnFinalizar.Enabled = false;
         }
 
         private void btnFinalizar_Click(object sender, EventArgs e)
@@ -158,6 +159,7 @@ namespace SosDentes.Telas
             {
                 MudarStatusItem("CONCLUÍDO");
             }
+            btnCancelar.Enabled = false;
         }
 
         private void MudarStatusItem(string status)
