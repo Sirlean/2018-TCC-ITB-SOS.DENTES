@@ -60,18 +60,20 @@ namespace SosDentes.Telas
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            DialogResult resultado = MessageBox.Show("Deseja excluir o Agendamento: " + Convert.ToString(dgv.CurrentRow.Cells[0].Value + "?"),
-                        "E X C L U S Ã O", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if (DialogResult.Yes == resultado)
+            if (dgv.CurrentCell.Value.ToString().Equals("CONCLUÍDO"))
             {
-                if (dgv.SelectedCells.Count == 1)
-                {
-                    MudarStatusItem("CANCELADO");
-                }
+                MessageBox.Show("Não foi possível cancelar depois de finalizado", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                btnCancelar.Enabled = false;
+                btnCancelar.Enabled = true;
             }
-            else
+            else if (dgv.CurrentCell.Value.ToString().Equals("Agendado"))
             {
-                MessageBox.Show("Operação cancelada ", "cancelamento E X C L U S Ã O", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Continue seu Agendamento ", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                btnCancelar.Enabled = true;
+            }
+            else if (dgv.SelectedCells.Count == 1)
+            {
+                MudarStatusItem("CANCELADO");
             }
             CarregaDataGrid();
         }
@@ -99,18 +101,21 @@ namespace SosDentes.Telas
 
         private void btnFinalizar_Click(object sender, EventArgs e)
         {
-            DialogResult resultado = MessageBox.Show("DESEJA CONCLUIR O AGENDAMENTO: " + Convert.ToString(dgv.CurrentRow.Cells[0].Value + "?"),
-                  "CONCLUSÃO", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if (DialogResult.Yes == resultado)
+
+            if (dgv.CurrentCell.Value.ToString().Equals("CANCELADO"))
             {
-                if (dgv.SelectedCells.Count == 1)
-                {
-                    MudarStatusItem("CONCLUÍDO");
-                }
+                MessageBox.Show("Não foi possível concluir depois de cancelado ", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                btnFinalizar.Enabled = false;
+                btnFinalizar.Enabled = true;
             }
-            else
+            else if (dgv.CurrentCell.Value.ToString().Equals("Agendado"))
             {
-                MessageBox.Show("OPERAÇÃO CANCELADA ", "CONCLUÍDO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Continue seu Agendamento", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                btnFinalizar.Enabled = true;
+            }
+            else if (dgv.SelectedCells.Count == 1)
+            {
+                MudarStatusItem("CONCLUÍDO");
             }
             CarregaDataGrid();
         }

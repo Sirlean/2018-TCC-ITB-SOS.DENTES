@@ -146,20 +146,43 @@ namespace SosDentes.Telas
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            if (dgv.SelectedCells.Count == 1)
+            if (dgv.CurrentCell.Value.ToString().Equals("CONCLUÍDO"))
+            {
+                MessageBox.Show("Não foi possível cancelar depois de finalizado", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                btnCancelar.Enabled = false;
+                btnCancelar.Enabled = true;
+            }
+            else if (dgv.CurrentCell.Value.ToString().Equals("Agendado"))
+            {
+                MessageBox.Show("Continue seu Agendamento ", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                btnCancelar.Enabled = true;
+            }
+            else if (dgv.SelectedCells.Count == 1)
             {
                 MudarStatusItem("CANCELADO");
             }
-            btnFinalizar.Enabled = false;
+
+            // btnFinalizar.Enabled = false;
         }
 
         private void btnFinalizar_Click(object sender, EventArgs e)
         {
-            if (dgv.SelectedCells.Count == 1)
+            if (dgv.CurrentCell.Value.ToString().Equals("CANCELADO"))
+            {
+                MessageBox.Show("Não foi possível concluir depois de cancelado ", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                btnFinalizar.Enabled = false;
+                btnFinalizar.Enabled = true;
+            }
+            else if (dgv.CurrentCell.Value.ToString().Equals("Agendado"))
+            {
+                MessageBox.Show("Continue seu Agendamento", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                btnFinalizar.Enabled = true;
+            }
+            else if (dgv.SelectedCells.Count == 1)
             {
                 MudarStatusItem("CONCLUÍDO");
             }
-            btnCancelar.Enabled = false;
+            // btnCancelar.Enabled = false;
         }
 
         private void MudarStatusItem(string status)
